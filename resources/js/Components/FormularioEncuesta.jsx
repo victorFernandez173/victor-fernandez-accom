@@ -77,7 +77,7 @@ const FormularioEncuesta = () => {
     return (
         <form onSubmit={handleSubmit} className="space-y-6 max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {/* DNI Field */}
+                {/* DNI */}
                 <div>
                     <label htmlFor="dni" className="block text-sm font-medium text-gray-700">
                         DNI/NIE del Cliente
@@ -92,7 +92,7 @@ const FormularioEncuesta = () => {
                     {errors.cliente_dni && <p className="text-red-500 text-sm">{errors.cliente_dni[0]}</p>}
                 </div>
             </div>
-            {/* Producto Field */}
+            {/* Producto */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div>
                     <label htmlFor="producto" className="block text-sm font-medium text-gray-700">
@@ -115,7 +115,7 @@ const FormularioEncuesta = () => {
             {/* Subproductos */}
             {producto &&
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {/* Subproducto Luz Field */}
+                    {/* Subproducto Luz */}
                     {(producto === "LUZ" || producto === "GAS" || producto === "DUAL") && (
                         <div>
                             <label htmlFor="subproducto" className="block text-sm font-medium text-gray-700">
@@ -138,7 +138,7 @@ const FormularioEncuesta = () => {
                                 <p className="text-red-500 text-sm">{errors.subproducto_luz[0]}</p>}
                         </div>
                     )}
-                    {/* Subproducto Gas Field */}
+                    {/* Subproducto Gas */}
                     {(producto === "DUAL") && (
                         <div>
                             <label htmlFor="subproductoGas" className="block text-sm font-medium text-gray-700">
