@@ -5,11 +5,11 @@ export default function Tabs({ tabs }) {
 
     return (
         <div className="w-full">
-            <div className="flex justify-end border-b border-gray-300">
+            <div className="flex justify-evenly border-b border-gray-300">
                 {tabs.map((tab, index) => (
                     <button
                         key={index}
-                        className={`py-2 px-4 ${
+                        className={`w-full py-2 px-12 ${
                             activeTab === index
                                 ? "border-b-2 border-blue-500 text-blue-500 font-semibold"
                                 : "text-gray-500"
@@ -21,7 +21,7 @@ export default function Tabs({ tabs }) {
                 ))}
             </div>
 
-            <div className="p-4">
+            <div className="p-4 mt-8">
                 {tabs[activeTab] && <div>{tabs[activeTab].content}</div>}
             </div>
         </div>

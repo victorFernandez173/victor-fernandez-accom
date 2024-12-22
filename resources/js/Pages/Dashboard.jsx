@@ -5,7 +5,17 @@ import { Head } from '@inertiajs/react';
 export default function Dashboard() {
     const tabs = [
         {
-            label: "Profile",
+            label: "Encuestas",
+            content: (
+                <div>
+                    <h2 className="text-xl font-semibold">User Profile</h2>
+                    <p>Name: John Doe</p>
+                    <p>Email: john.doe@example.com</p>
+                </div>
+            ),
+        },
+        {
+            label: "Rellenar encuesta",
             content: (
                 <div>
                     <h2 className="text-xl font-semibold">User Profile</h2>
