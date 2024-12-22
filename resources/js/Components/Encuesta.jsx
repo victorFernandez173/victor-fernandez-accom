@@ -1,11 +1,12 @@
 import { useState } from "react";
 import PrimaryButton from "@/Components/PrimaryButton";
 import Swal from "sweetalert2";
-import {router} from "@inertiajs/react";
+import {router, usePage} from "@inertiajs/react";
 
 export default function Encuesta({ encuesta }) {
     const { id, cliente_dni, estatus, producto, subproducto_luz, subproducto_gas, mantenimiento_luz, mantenimiento_gas } = encuesta;
     const [loading, setLoading] = useState(false);
+    const { auth } = usePage().props;
 
     const handleDelete = async () => {
         const result = await Swal.fire({
@@ -20,7 +21,7 @@ export default function Encuesta({ encuesta }) {
         if (result.isConfirmed) {
             setLoading(true);
             try {
-                router.delete(`/encuestas/${id}`)
+                router.delete(`/dashboard/encuestas/${id}`)
 
                 await Swal.fire('Borrado!', 'La encuesta ha sido borrada.', 'success');
             } catch (error) {
@@ -69,12 +70,13 @@ export default function Encuesta({ encuesta }) {
                 </div>
             )}
 
-            {/* Delete Button */}
-            <div className="mt-4 flex justify-end">
-                <PrimaryButton onClick={handleDelete} disabled={loading}>
-                    {loading ? 'Borrando...' : 'Borrar Encuesta'}
-                </PrimaryButton>
-            </div>
+            {auth.is_admin && (
+                <div className="mt-4 flex justify-end">
+                    <PrimaryButton onClick={handleDelete} disabled={loading}>
+                        {loading ? 'Borrando...' : 'Borrar Encuesta'}
+                    </PrimaryButton>
+                </div>
+            )}
         </div>
     );
 }
