@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import {router, usePage} from "@inertiajs/react";
 
 export default function Encuesta({ encuesta }) {
-    const { id, cliente_dni, estatus, producto, subproducto_luz, subproducto_gas, mantenimiento_luz, mantenimiento_gas } = encuesta;
+    const { id, cliente_dni, estatus, producto, subproducto, subproducto_gas, mantenimiento_luz, mantenimiento_gas } = encuesta;
     const [loading, setLoading] = useState(false);
     const { auth } = usePage().props;
 
@@ -46,7 +46,7 @@ export default function Encuesta({ encuesta }) {
             {producto === "DUAL" && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-700">
                     <div>
-                        <p><span className="font-semibold">Subproducto Luz:</span> {subproducto_luz || 'N/A'}</p>
+                        <p><span className="font-semibold">Subproducto:</span> {subproducto || 'N/A'}</p>
                         <p><span className="font-semibold">Subproducto Gas:</span> {subproducto_gas || 'N/A'}</p>
                     </div>
                     <div>
@@ -58,7 +58,7 @@ export default function Encuesta({ encuesta }) {
 
             {producto === "LUZ" && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-gray-700">
-                    <p><span className="font-semibold">Subproducto Luz:</span> {subproducto_luz || 'N/A'}</p>
+                    <p><span className="font-semibold">Subproducto:</span> {subproducto || 'N/A'}</p>
                     <p><span className="font-semibold">Mantenimiento Luz:</span> {mantenimiento_luz || 'N/A'}</p>
                 </div>
             )}
