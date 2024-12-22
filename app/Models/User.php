@@ -47,4 +47,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function encuestas(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Encuesta::class);
+    }
 }
