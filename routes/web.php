@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EncuestasController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -9,10 +10,10 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::middleware('role:admin|employee')->group(function () {
         Route::get('encuestas', [EncuestasController::class, 'index'])->name('encuestas.index');
         Route::get('encuestas/{id}', [EncuestasController::class, 'show'])->name('encuestas.show');
