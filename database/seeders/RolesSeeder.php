@@ -12,7 +12,6 @@ class RolesSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create roles and assign permissions
         $admin = Role::create(['name' => 'admin']);
         $employee = Role::create(['name' => 'employee']);
 
