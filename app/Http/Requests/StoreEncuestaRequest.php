@@ -33,10 +33,26 @@ class StoreEncuestaRequest extends FormRequest
     {
         return [
             'cliente_dni.required' => 'El DNI del cliente es obligatorio.',
+            'cliente_dni.max' => 'El DNI no puede exceder los 20 caracteres.',
             'producto.required' => 'El producto es obligatorio.',
-            'estatus.required' => 'El estatus es obligatorio.',
+            'producto.string' => 'El producto debe ser un texto válido.',
+            'producto.max' => 'El producto no puede exceder los 255 caracteres.',
+            'subproducto_luz.string' => 'El subproducto de luz debe ser un texto válido.',
+            'subproducto_luz.max' => 'El subproducto de luz no puede exceder los 255 caracteres.',
+            'subproducto_gas.string' => 'El subproducto de gas debe ser un texto válido.',
+            'subproducto_gas.max' => 'El subproducto de gas no puede exceder los 255 caracteres.',
+            'mantenimiento_luz.string' => 'El mantenimiento de luz debe ser un texto válido.',
+            'mantenimiento_luz.max' => 'El mantenimiento de luz no puede exceder los 255 caracteres.',
+            'mantenimiento_gas.string' => 'El mantenimiento de gas debe ser un texto válido.',
+            'mantenimiento_gas.max' => 'El mantenimiento de gas no puede exceder los 255 caracteres.',
+            'estatus.required' => 'El estado es obligatorio.',
+            'estatus.string' => 'El estado debe ser un texto válido.',
+            'estatus.max' => 'El estado no puede exceder los 20 caracteres.',
+            'user_id.required' => 'El ID del usuario es obligatorio.',
+            'user_id.exists' => 'El usuario proporcionado no existe en el sistema.',
         ];
     }
+
 
     public function isValidNif(?string $value): bool
     {

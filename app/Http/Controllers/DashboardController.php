@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEncuestaRequest;
 use App\Models\Encuesta;
 use Inertia\Inertia;
 
@@ -20,6 +21,22 @@ class DashboardController extends Controller
         return Inertia::render('Dashboard', [
             'encuestas' => $encuestas,
         ]);
+    }
+
+    public function create(StoreEncuestaRequest $request)
+    {
+        $encuesta = Encuesta::create([
+            'user_id' => auth()->id(),
+            'cliente_dni' => $request->cliente_dni,
+            'producto' => $request->producto,
+            'subproducto_luz' => $request->subproducto_luz,
+            'subproducto_gas' => $request->subproducto_gas,
+            'mantenimiento_luz' => $request->mantenimiento_luz,
+            'mantenimiento_gas' => $request->mantenimiento_gas,
+            'estatus' => $request->estatus,
+        ]);
+
+        return redirect()->back();
     }
 
     public function delete($id)
