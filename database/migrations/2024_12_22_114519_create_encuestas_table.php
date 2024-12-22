@@ -18,9 +18,9 @@ class CreateEncuestasTable extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('cliente_dni', 9)->nullable(false);
             $table->enum('producto', ['LUZ', 'GAS', 'DUAL'])->nullable(false);
-            $table->string('subproducto_luz', 50)->nullable();
+            $table->string('subproducto', 50)->nullable();
             $table->string('subproducto_gas', 50)->nullable();
-            $table->enum('mantenimiento_luz', ['SI', 'NO'])->nullable();
+            $table->enum('mantenimiento', ['SI', 'NO'])->nullable();
             $table->enum('mantenimiento_gas', ['SI', 'NO'])->nullable();
             $table->enum('estatus', ['VENDIDO', 'EN PROCESO', 'NO VENDIDO', 'NO VALIDO'])->nullable(false);
             $table->timestamp('creado')->useCurrent();
