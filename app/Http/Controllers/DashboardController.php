@@ -29,9 +29,9 @@ class DashboardController extends Controller
             'user_id' => auth()->id(),
             'cliente_dni' => $request->cliente_dni,
             'producto' => $request->producto,
-            'subproducto_luz' => $request->subproducto_luz,
+            'subproducto' => $request->subproducto,
             'subproducto_gas' => $request->subproducto_gas,
-            'mantenimiento_luz' => $request->mantenimiento_luz,
+            'mantenimiento' => $request->mantenimiento,
             'mantenimiento_gas' => $request->mantenimiento_gas,
             'estatus' => $request->estatus,
         ]);

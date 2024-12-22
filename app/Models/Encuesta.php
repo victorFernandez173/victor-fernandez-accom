@@ -14,9 +14,9 @@ class Encuesta extends Model
         'user_id',
         'cliente_dni',
         'producto',
-        'subproducto_luz',
+        'subproducto',
         'subproducto_gas',
-        'mantenimiento_luz',
+        'mantenimiento',
         'mantenimiento_gas',
         'estatus',
     ];

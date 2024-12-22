@@ -224,10 +224,6 @@ const FormularioEncuesta = () => {
                 </div>
             </div>
 
-
-
-
-
             <div className="flex justify-end">
                 <PrimaryButton type="submit" disabled={loading}>
                     {loading ? "Guardando..." : "Guardar Encuesta"}

@@ -23,7 +23,10 @@ class StoreEncuestaRequest extends FormRequest
             'subproducto' => 'nullable|string|max:255',
             'subproducto_gas' => 'nullable|string|max:255',
             'mantenimiento' => 'required|string|max:255',
-            'mantenimiento_gas' => 'required|string|max:255',
+            'mantenimiento_gas' => [
+                'required_if:producto,DUAL',
+                'max:255',
+            ],
             'estatus' => 'required|string|max:20',
             'user_id' => 'required|exists:users,id',
         ];
@@ -47,6 +50,7 @@ class StoreEncuestaRequest extends FormRequest
             'mantenimiento_gas.required' => 'El mantenimiento de gas es obligatorio.',
             'mantenimiento_gas.string' => 'El mantenimiento de gas debe ser un texto válido.',
             'mantenimiento_gas.max' => 'El mantenimiento de gas no puede exceder los 255 caracteres.',
+            'mantenimiento_gas.required_if' => 'El mantenimiento de gas es obligatorio cuando el producto es DUAL.',
             'estatus.required' => 'El estado es obligatorio.',
             'estatus.string' => 'El estado debe ser un texto válido.',
             'estatus.max' => 'El estado no puede exceder los 20 caracteres.',
