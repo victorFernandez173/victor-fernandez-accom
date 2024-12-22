@@ -6,25 +6,23 @@ import PrimaryButton from "@/Components/PrimaryButton.jsx";
 const FormularioEncuesta = () => {
     const [dni, setDni] = useState("");
     const [producto, setProducto] = useState("");
-    const [subproductoLuz, setSubproductoLuz] = useState("");
+    const [subproducto, setSubproducto] = useState("");
     const [subproductoGas, setSubproductoGas] = useState("");
-    const [mantenimientoLuz, setMantenimientoLuz] = useState("");
+    const [mantenimiento, setMantenimiento] = useState("");
     const [mantenimientoGas, setMantenimientoGas] = useState("");
     const [estatus, setEstatus] = useState("");
     const [loading, setLoading] = useState(false);
-    const [subproductosLuz, setSubproductosLuz] = useState([]);
+    const [subproductos, setSubproductos] = useState([]);
     const [subproductosGas, setSubproductosGas] = useState([]);
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
         if (producto === "LUZ") {
-            setSubproductosLuz(["TARIFA PLANA", "TARIFA POR USO"]);
-            setSubproductosGas([]);
+            setSubproductos(["TARIFA PLANA", "TARIFA POR USO"]);
         } else if (producto === "GAS") {
-            setSubproductosLuz([]);
-            setSubproductosGas(["PLENA", "TOTAL"]);
+            setSubproductos(["PLENA", "TOTAL"]);
         } else if (producto === "DUAL") {
-            setSubproductosLuz(["TARIFA PLANA", "TARIFA POR USO"]);
+            setSubproductos(["TARIFA PLANA", "TARIFA POR USO"]);
             setSubproductosGas(["PLENA", "TOTAL"]);
         }
     }, [producto]);
@@ -39,9 +37,9 @@ const FormularioEncuesta = () => {
                 user_id: 1,
                 cliente_dni: dni,
                 producto,
-                subproducto_luz: subproductoLuz || null,
+                subproducto: subproducto || null,
                 subproducto_gas: subproductoGas || null,
-                mantenimiento_luz: producto === "DUAL" ? mantenimientoLuz : null,
+                mantenimiento_luz: producto === "DUAL" ? mantenimiento : null,
                 mantenimiento_gas: producto === "DUAL" ? mantenimientoGas : null,
                 estatus,
             });
@@ -55,9 +53,9 @@ const FormularioEncuesta = () => {
 
             setDni("");
             setProducto("");
-            setSubproductoLuz("");
+            setSubproducto("");
             setSubproductoGas("");
-            setMantenimientoLuz("");
+            setMantenimiento("");
             setMantenimientoGas("");
             setEstatus("");
         } catch (error) {
@@ -94,8 +92,8 @@ const FormularioEncuesta = () => {
                     {errors.cliente_dni && <p className="text-red-500 text-sm">{errors.cliente_dni[0]}</p>}
                 </div>
             </div>
+            {/* Producto Field */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {/* Producto Field */}
                 <div>
                     <label htmlFor="producto" className="block text-sm font-medium text-gray-700">
                         Producto
@@ -114,21 +112,22 @@ const FormularioEncuesta = () => {
                     {errors.producto && <p className="text-red-500 text-sm">{errors.producto[0]}</p>}
                 </div>
             </div>
+            {/* Subproductos */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {/* Subproducto Luz Field */}
-                {(producto === "LUZ" || producto === "DUAL") && (
+                {(producto === "LUZ" || producto === "GAS" || producto === "DUAL") && (
                     <div>
-                        <label htmlFor="subproductoLuz" className="block text-sm font-medium text-gray-700">
-                            Subproducto Luz
+                        <label htmlFor="subproducto" className="block text-sm font-medium text-gray-700">
+                            Subproducto
                         </label>
                         <select
-                            id="subproductoLuz"
-                            value={subproductoLuz}
-                            onChange={(e) => setSubproductoLuz(e.target.value)}
+                            id="subproducto"
+                            value={subproducto}
+                            onChange={(e) => setSubproducto(e.target.value)}
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         >
-                            <option value="">Selecciona Subproducto Luz</option>
-                            {subproductosLuz.map((sub, index) => (
+                            <option value="">Selecciona Subproducto</option>
+                            {subproductos.map((sub, index) => (
                                 <option key={index} value={sub}>
                                     {sub}
                                 </option>
@@ -138,7 +137,7 @@ const FormularioEncuesta = () => {
                     </div>
                 )}
                 {/* Subproducto Gas Field */}
-                {(producto === "GAS" || producto === "DUAL") && (
+                {(producto === "DUAL") && (
                     <div>
                         <label htmlFor="subproductoGas" className="block text-sm font-medium text-gray-700">
                             Subproducto Gas
@@ -162,28 +161,28 @@ const FormularioEncuesta = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {/* Mantenimiento Luz Field */}
-                {(producto === "LUZ" || producto === "DUAL") && (
+                {(producto === "LUZ" || producto === "GAS" || producto === "DUAL") && (
                     <div>
-                        <label htmlFor="mantenimientoLuz" className="block text-sm font-medium text-gray-700">
-                            Mantenimiento Luz
+                        <label htmlFor="mantenimiento" className="block text-sm font-medium text-gray-700">
+                            Mantenimiento
                         </label>
                         <select
-                            id="mantenimientoLuz"
-                            value={mantenimientoLuz}
-                            onChange={(e) => setMantenimientoLuz(e.target.value)}
+                            id="mantenimiento"
+                            value={mantenimiento}
+                            onChange={(e) => setMantenimiento(e.target.value)}
                             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         >
-                            <option value="">Selecciona Mantenimiento Luz</option>
+                            <option value="">Selecciona Mantenimiento</option>
                             <option value="SI">SI</option>
                             <option value="NO">NO</option>
                         </select>
-                        {errors.mantenimiento_luz && (
-                            <p className="text-red-500 text-sm">{errors.mantenimiento_luz[0]}</p>
+                        {errors.mantenimiento && (
+                            <p className="text-red-500 text-sm">{errors.mantenimiento[0]}</p>
                         )}
                     </div>
                 )}
                 {/* Mantenimiento Gas Field */}
-                {(producto === "GAS" || producto === "DUAL") && (
+                {(producto === "DUAL") && (
                     <div>
                         <label htmlFor="mantenimientoGas" className="block text-sm font-medium text-gray-700">
                             Mantenimiento Gas

@@ -2,6 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import Tabs from '@/Components/Tabs.jsx';
 import { Head } from '@inertiajs/react';
 import Encuesta from "@/Components/Encuesta.jsx";
+import FormularioEncuesta from "@/Components/FormularioEncuesta.jsx";
 
 export default function Dashboard({encuestas}) {
     const tabs = [
@@ -24,9 +25,8 @@ export default function Dashboard({encuestas}) {
             label: "Rellenar encuesta",
             content: (
                 <div>
-                    <h2 className="text-xl font-semibold">User Profile</h2>
-                    <p>Name: John Doe</p>
-                    <p>Email: john.doe@example.com</p>
+                    <h2 className="text-xl font-semibold">Rellenar encuesta</h2>
+                    <FormularioEncuesta />
                 </div>
             ),
         },
