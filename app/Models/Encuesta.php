@@ -2,25 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Encuesta extends Model
-{ /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
+{
     protected $table = 'encuestas';
-
     const CREATED_AT = 'creado';
     const UPDATED_AT = 'modificado';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'user_id',
         'cliente_dni',
