@@ -38,8 +38,8 @@ const FormularioEncuesta = () => {
                 cliente_dni: dni,
                 producto,
                 subproducto: subproducto || null,
-                subproducto_gas: subproductoGas || null,
-                mantenimiento_luz: producto === "DUAL" ? mantenimiento : null,
+                subproducto_gas: producto === "DUAL" ? subproductoGas : null,
+                mantenimiento,
                 mantenimiento_gas: producto === "DUAL" ? mantenimientoGas : null,
                 estatus,
             });
