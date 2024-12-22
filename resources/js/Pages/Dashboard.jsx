@@ -1,16 +1,22 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import Tabs from '@/Components/Tabs.jsx';
 import { Head } from '@inertiajs/react';
+import Encuesta from "@/Components/Encuesta.jsx";
 
-export default function Dashboard() {
+export default function Dashboard({encuestas}) {
     const tabs = [
         {
             label: "Encuestas",
             content: (
                 <div>
-                    <h2 className="text-xl font-semibold">User Profile</h2>
-                    <p>Name: John Doe</p>
-                    <p>Email: john.doe@example.com</p>
+                    <h2 className="text-xl font-semibold mb-4">Listado de Encuestas</h2>
+                    {encuestas.length > 0 ? (
+                        encuestas.map((encuesta) => (
+                            <Encuesta key={encuesta.id} encuesta={encuesta}/>
+                        ))
+                    ) : (
+                        <p>No hay encuestas disponibles.</p>
+                    )}
                 </div>
             ),
         },

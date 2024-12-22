@@ -9,7 +9,7 @@ export default function Tabs({ tabs }) {
                 {tabs.map((tab, index) => (
                     <button
                         key={index}
-                        className={`w-full py-2 px-12 ${
+                        className={`w-full py-2 px-4 ${
                             activeTab === index
                                 ? "border-b-2 border-blue-500 text-blue-500 font-semibold"
                                 : "text-gray-500"
