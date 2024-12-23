@@ -12,8 +12,8 @@ class RolesSeeder extends Seeder
      */
     public function run(): void
     {
-        $admin = Role::create(['name' => 'admin']);
-        $employee = Role::create(['name' => 'employee']);
+        Role::create(['name' => 'admin']);
+        Role::create(['name' => 'employee']);
 
         $adminUser = \App\Models\User::where('email', 'admin@accom.com')->first();
         $adminUser->email_verified_at = now();
