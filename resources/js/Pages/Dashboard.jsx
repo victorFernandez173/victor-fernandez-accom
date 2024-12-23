@@ -16,7 +16,6 @@ const Dashboard = ({encuestas}) => {
 
     useEffect(() => {
         try {
-            console.log(new Date());
             axios.post("/dashboard/encuestas/fetch-all")
                 .then((response) => {
                     setListadoEncuestas(response.data);
