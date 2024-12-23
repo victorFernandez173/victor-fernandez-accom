@@ -3,7 +3,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import Swal from "sweetalert2";
 import {router, usePage} from "@inertiajs/react";
 
-export default function Encuesta({ encuesta }) {
+const Encuesta = ({ encuesta }) => {
     const { id, cliente_dni, estatus, producto, subproducto, subproducto_gas, mantenimiento, mantenimiento_gas } = encuesta;
     const [loading, setLoading] = useState(false);
     const { auth } = usePage().props;
@@ -73,3 +73,5 @@ export default function Encuesta({ encuesta }) {
         </div>
     );
 }
+
+export default Encuesta;

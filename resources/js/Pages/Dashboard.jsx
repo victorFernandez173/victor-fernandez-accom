@@ -3,11 +3,11 @@ import Tabs from '@/Components/Tabs.jsx';
 import { Head } from '@inertiajs/react';
 import Encuesta from "@/Components/Encuesta.jsx";
 import FormularioEncuesta from "@/Components/FormularioEncuesta.jsx";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export default function Dashboard({encuestas}) {
+const Dashboard = ({encuestas}) => {
     const [listadoEncuestas, setListadoEncuestas] = useState(encuestas);
     const [nuevaEncuesta, setNuevaEncuesta] = useState(null);
     const handleNewEncuesta = (newEncuesta) => {
@@ -27,7 +27,7 @@ export default function Dashboard({encuestas}) {
                 confirmButtonText: "Aceptar",
             });
         }
-    }, [nuevaEncuesta]);
+    }, [nuevaEncuesta, listadoEncuestas]);
 
     const tabs = [
         {
@@ -72,3 +72,5 @@ export default function Dashboard({encuestas}) {
         </AuthenticatedLayout>
     );
 }
+
+export default Dashboard;
