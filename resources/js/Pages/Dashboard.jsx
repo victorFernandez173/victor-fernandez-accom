@@ -14,7 +14,8 @@ const Dashboard = ({encuestas}) => {
         setNuevaEncuesta(newEncuesta);
     };
 
-    useEffect(() => { try {
+    useEffect(() => {
+        try {
             axios.post("/dashboard/encuestas/fetch-all")
                 .then((response) => {
                     setListadoEncuestas(response.data);
@@ -27,7 +28,7 @@ const Dashboard = ({encuestas}) => {
                 confirmButtonText: "Aceptar",
             });
         }
-    }, [nuevaEncuesta, listadoEncuestas]);
+    }, [nuevaEncuesta]);
 
     const tabs = [
         {
