@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import PrimaryButton from "@/Components/PrimaryButton.jsx";
 
-const FormularioEncuesta = () => {
+const FormularioEncuesta = ({onNewEncuesta}) => {
     const [dni, setDni] = useState("");
     const [producto, setProducto] = useState("");
     const [subproducto, setSubproducto] = useState("");
@@ -33,7 +33,7 @@ const FormularioEncuesta = () => {
         setErrors({});
 
         try {
-            await axios.post("/dashboard/encuestas/create", {
+            const response = await axios.post("/dashboard/encuestas/create", {
                 user_id: 1,
                 cliente_dni: dni,
                 producto,
@@ -58,6 +58,10 @@ const FormularioEncuesta = () => {
             setMantenimiento("");
             setMantenimientoGas("");
             setEstatus("");
+
+            if (onNewEncuesta) {
+                onNewEncuesta(response.data);
+            }
         } catch (error) {
             if (error.response && error.response.status === 422) {
                 setErrors(error.response.data.errors);

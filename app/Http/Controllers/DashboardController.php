@@ -23,6 +23,11 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function fetchEncuestas()
+    {
+        return Encuesta::all();
+    }
+
     public function create(StoreEncuestaRequest $request)
     {
         $encuesta = Encuesta::create([
