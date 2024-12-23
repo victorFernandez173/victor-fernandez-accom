@@ -21,6 +21,7 @@ Decisiones durante el desarrollo:
     - Rutas en fichero de rutas
     - Controladores con funciones de logica en su correspondiente seccion por defecto y encapsulando las funciones de la manera mas estructurada posible
     - Para la bbdd he editado/creado las migraciones necesarias y los seeders correspondientes tanto para poblar las tablas de usuarios (se requieren al menos 2 usuarios) como las de permisos (para estas solo he creado dos roles)
+    - Lo mismo para el front, con diferentes componentes y funcionalidades
 
 
 ## instalación
@@ -56,7 +57,8 @@ cp .env.example .env
 ```
 ./vendor/bin/sail artisan key:generate
 ```
-7. Ejecutar migraciones
+7. Ejecutar migraciones (en mi caso tuve que modificar los puertos de mysql para el proyecto ya que yo en mi sistema tengo mysql server que ya usa el puerto 3306, dicha modificación la llevé a cabo en docker-compose.yml:
+   - '${FORWARD_DB_PORT:-3307}:3306')
 ```
 ./vendor/bin/sail artisan migrate
 ``` 
