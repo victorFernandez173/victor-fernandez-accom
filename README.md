@@ -24,6 +24,10 @@ Decisiones durante el desarrollo:
     - Lo mismo para el front, con diferentes componentes y funcionalidades
     - Modelo Encuesta con la correspondiente configuración para el adecuado mapeado de sus datos
     - Todo el proceso llevado a cabo con el control de versiones git
+  
+- Por ultimo he añadido el sistema de api rest de laravel (en laravel 11 el esqueleto es más ligero y para instalar el fichero de rutas y el sistema de autenticacion por tokens sanctum para api rest, hay que hacerlo a posteriori una vez montado el andamiaje inicial mediante el comando php artisan install:api/sail artisan install:api)
+- Dicho sistema, permite que la app pudiera ser consumida con otros sistemas de front etc en caso de ser neceario.
+- Por eso mismo además cree 2 controladores: uno para la api rest puro (encuestas controller) y otro para el consumo de datos desde el propio front de react de la app(DashboardController).
 
 
 ## instalación
@@ -85,3 +89,6 @@ http://localhost
 Todos los permisos: admin@accom.com/admin@accom.com
 Permisos restringidos: employee@accom.com/employee@accom.com
 ```
+
+## testeo de la api rest en mi caso con postman
+#### pasos ej para poder generar un token para el usuario y testear la funcionalidad api rest
