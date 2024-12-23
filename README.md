@@ -28,7 +28,7 @@ Decisiones durante el desarrollo:
 
 ## instalación
 #### como he comentado más arriba, para poder hacer funcionar el proyecto se requiere docker en el sistema
-#### proceso llevado a cabo con ubuntu, terminal bash
+#### (proceso llevado a cabo con ubuntu, terminal bash)
 
 1. Clona el proyecto (también puedes via ssh dada una configuración adecuada)
 ```
@@ -80,7 +80,7 @@ cp .env.example .env
 ```
 http://localhost
 ```
-12. Usuarios (email/password)
+12. Credenciales usuarios (email/password)
 ```
 Todos los permisos: admin@accom.com/admin@accom.com
 Permisos restringidos: employee@accom.com/employee@accom.com
