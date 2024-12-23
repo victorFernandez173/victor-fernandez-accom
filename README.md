@@ -92,3 +92,49 @@ Permisos restringidos: employee@accom.com/employee@accom.com
 
 ## testeo de la api rest en mi caso con postman
 #### pasos ej para poder generar un token para el usuario y testear la funcionalidad api rest
+#### aclarar que dadas las limitaciones de tiempo, no he controlado situaciones como que no haya resultados, descuidados codigos de error, etc...
+1. Peticion de login
+```
+mehod: POST
+url: http://localhost/api/login
+Headers: Content-Type: application/json
+Body(JSON):
+    {
+         "email": "admin@accom.com",
+         "password": "admin@accom.com"
+    }
+Respuesta esperada:    
+    {
+        "token": "1|6dUV05NXJARKhLAD8IK9jSQwGjRDWb9aSFsehmaQ5722497c"
+    }
+```
+2. Peticion protegida 
+```
+mehod: GET
+url: http://localhost/api/encuestas
+Headers: Authorization: Bearer 1|abcdefg1234567890
+Respuesta (esperada si hay alguna encuesta):    
+    [
+        {
+            "id": 1,
+            "user_id": 1,
+            "cliente_dni": "51106347W",
+            "producto": "LUZ",
+            "subproducto": null,
+            "subproducto_gas": null,
+            "mantenimiento": "SI",
+            "mantenimiento_gas": null,
+            "estatus": "VENDIDO",
+            "creado": "2024-12-23T19:08:21.000000Z",
+            "modificado": "2024-12-23T19:08:21.000000Z"
+        }
+    ]
+```
+3. Peticion sin token 
+```
+mehod: GET
+url: http://localhost/api/encuestas
+Headers: desactivamos el header
+Respuesta esperada si hay alguna encuesta: pagina de error    
+  
+```
