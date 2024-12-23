@@ -52,13 +52,10 @@ cp .env.example .env
 ```
 ./vendor/bin/sail up
 ```
-
 6. Genera una clave de app
 ```
 ./vendor/bin/sail artisan key:generate
-
-``` 
-
+```
 7. Ejecutar migraciones
 ```
 ./vendor/bin/sail artisan migrate
@@ -66,7 +63,6 @@ cp .env.example .env
 8. Alimentar la base de datos
 ```
 ./vendor/bin/sail artisan db:seed
-
 ```
 9. Instalar dependencias npm
 ```
@@ -79,5 +75,9 @@ cp .env.example .env
 11. Aceder a la app
 ```
 http://localhost
-
+```
+12. Usuarios (email/password)
+```
+Todos los permisos: admin@accom.com/admin@accom.com
+Permisos restringidos: employee@accom.com/employee@accom.com
 ```
