@@ -23,6 +23,7 @@ Decisiones durante el desarrollo:
     - Para la bbdd he editado/creado las migraciones necesarias y los seeders correspondientes tanto para poblar las tablas de usuarios (se requieren al menos 2 usuarios) como las de permisos (para estas solo he creado dos roles)
     - Lo mismo para el front, con diferentes componentes y funcionalidades
     - Modelo Encuesta con la correspondiente configuración para el adecuado mapeado de sus datos
+    - Todo el proceso llevado a cabo con el control de versiones git
 
 
 ## instalación
