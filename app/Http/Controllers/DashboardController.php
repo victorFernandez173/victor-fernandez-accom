@@ -30,7 +30,7 @@ class DashboardController extends Controller
 
     public function create(StoreEncuestaRequest $request)
     {
-        $encuesta = Encuesta::create([
+        Encuesta::create([
             'user_id' => auth()->id(),
             'cliente_dni' => $request->cliente_dni,
             'producto' => $request->producto,
