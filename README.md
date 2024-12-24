@@ -30,7 +30,8 @@ Decisiones durante el desarrollo:
 - Por eso mismo además cree 2 controladores: uno para la api rest puro (encuestas controller) y otro para el consumo de datos desde el propio front de react de la app(DashboardController).
 
 
-## instalación
+## instalación app con react
+11
 #### como he comentado más arriba, para poder hacer funcionar el proyecto se requiere docker en el sistema
 #### (proceso llevado a cabo con ubuntu, terminal bash)
 
@@ -90,7 +91,7 @@ Todos los permisos: admin@accom.com/admin@accom.com
 Permisos restringidos: employee@accom.com/employee@accom.com
 ```
 
-## testeo de la api rest en mi caso con postman
+## extra: testeo de la api rest en mi caso con postman
 #### pasos ej para poder generar un token para el usuario y testear la funcionalidad api rest
 #### aclarar que dadas las limitaciones de tiempo, no he controlado situaciones como que no haya resultados, descuidados codigos de error, etc...
 1. Peticion de login
@@ -111,9 +112,9 @@ Respuesta esperada:
 2. Peticion protegida 
 ```
 mehod: GET
-url: http://localhost/api/encuestas
-Headers: Authorization: Bearer 1|abcdefg1234567890
-Respuesta (esperada si hay alguna encuesta):    
+url: http://localhost/api/encuestas/1
+Headers: Authorization: Bearer 1|6dUV05NXJARKhLAD8IK9jSQwGjRDWb9aSFsehmaQ5722497c
+Respuesta (esperada si existe esa encuesta):    
     [
         {
             "id": 1,
@@ -129,6 +130,10 @@ Respuesta (esperada si hay alguna encuesta):
             "modificado": "2024-12-23T19:08:21.000000Z"
         }
     ]
+Respuesta si no existe:
+{
+    "error": "Encuesta no encontrada"
+}
 ```
 3. Peticion sin token 
 ```
