@@ -15,4 +15,8 @@ class NewController extends Controller
         // aquí el código de la nueva función de prueba
     }
 
+    public function nuevaFuncionFromDevelop()
+    {
+        // aquí el código de la función
+    }
 }
