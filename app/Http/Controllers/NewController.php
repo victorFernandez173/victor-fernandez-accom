@@ -24,5 +24,6 @@ class NewController extends Controller
         // aquí el código de la función
         // nuevo commit2 amend
         // 1st commit
+        return
     }
 }
