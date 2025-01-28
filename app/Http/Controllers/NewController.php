@@ -22,5 +22,6 @@ class NewController extends Controller
     public function nuevaFuncionFromDevelop()
     {
         // aquí el código de la función
+        // nuevo commit2 amend
     }
 }
