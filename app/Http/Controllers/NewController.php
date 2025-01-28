@@ -14,7 +14,7 @@ class NewController extends Controller
     {
         // aquí el código de la nueva función de prueba
         if(true){
-            // nueva structura de control en la funcion
+            // nueva structura de control en la funcion añadida desde new-branch
             return false;
         }
     }
