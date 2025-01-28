@@ -17,6 +17,6 @@ class NewController extends Controller
 
     public function nuevaFuncionFromDevelop()
     {
-        // aquí el código de la función
+        // aquí el código de la función añadido desde github
     }
 }
