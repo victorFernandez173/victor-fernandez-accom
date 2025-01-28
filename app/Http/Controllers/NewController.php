@@ -13,6 +13,10 @@ class NewController extends Controller
     public function nuevaFuncionEjemplo()
     {
         // aquí el código de la nueva función de prueba
+        if(true){
+            // nueva structura de control en la funcion
+            return false;
+        }
     }
 
 }
